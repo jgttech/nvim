@@ -28,6 +28,29 @@ return {
           -- Using this option may slow down your editor, and you may see some duplicate highlights.
           -- Instead of true it can also be a list of languages
           additional_vim_regex_highlighting = false,
+        },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = '<c-space>',
+            node_incremental = '<c-space>',
+            scope_incremental = '<c-s>',
+            node_decremental = '<c-backspace>'
+          }
+        },
+        textobjects = {
+          move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+              ['[f'] = '@function.outer',
+              ['[c'] = '@class.outer',
+            },
+            goto_next_end = {
+              [']f'] = '@function.outer',
+              [']c'] = '@class.outer'
+            }
+          },
         }
       })
     end

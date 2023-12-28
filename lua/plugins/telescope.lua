@@ -37,8 +37,9 @@ return {
     config = function()
       local telescope = import('telescope')
       local builtin = import('telescope.builtin')
+      local themes = import('telescope.themes')
 
-      if telescope and builtin then
+      if telescope and builtin and themes then
         telescope.load_extension('media_files')
         telescope.load_extension('projects')
 
@@ -52,13 +53,28 @@ return {
         })
 
         keymap({
-          { "n", "<leader><space>", builtin.buffers },
-          { "n", "<leader>ff",      builtin.find_files },
-          { "n", "<leader>gf",           builtin.git_files },
-          { "n", "<leader>ps",
+          { "n", "<leader><space>", builtin.buffers, { desc = '[ ] Show buffer' } },
+          { "n", "<leader>sf",      builtin.find_files, { desc = '[S]earch [F]iles' }},
+          { "n", "<leader>sg",      builtin.git_files, { desc = '[S]earch [G]it files' } },
+          { "n", "<leader>sk", ":Telescope keymaps<cr>", { desc = "[S]earch [K]eymaps" } },
+          { "n", "<leader>sh", builtin.help_tags, { desc = '[S]earch [H]elp' } },
+          { "n", "<leader>sw", builtin.grep_string, { desc = '[S]earch current [W]ord' } },
+          { "n", "<leader>sg", builtin.live_grep, { desc = '[S]earch by [G]rep' } },
+          { "n", "<leader>sd", builtin.diagnostics, { desc = '[S]earch [D]iagnostics' } },
+          { "n", "<leader>/",
+            function()
+              builtin. current_buffer_fuzzy_find(themes.get_dropdown {
+                winblend = 10,
+                previewer = false
+              })
+            end,
+            { desc = '[/] Fuzzily search  in current buffer' }
+          },
+          { "n", "<leader>ss",
             function()
               builtin.grep_string({ search = vim.fn.input("Grep > ") });
-            end
+            end,
+            { desc = 'Grep search replace' }
           }
         })
       end
