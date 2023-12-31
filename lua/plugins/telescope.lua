@@ -39,7 +39,7 @@ return {
     {
       desc = "Find files",
       "<leader>ff",
-      key(function(builtin, themes)
+      key(function(builtin)
         builtin.find_files({
           previewer = false,
           layout_config = {
@@ -51,7 +51,7 @@ return {
     {
       desc = "Find git files",
       "<leader>fg",
-      key(function(builtin, themes)
+      key(function(builtin)
         builtin.git_files({
           previewer = false,
           layout_config = {
@@ -63,21 +63,21 @@ return {
     {
       desc = "Find keymaps",
       "<leader>fk",
-      key(function(builtin, themes)
+      key(function(builtin)
         builtin.keymaps()
       end),
     },
     {
       desc = "Find help",
       "<leader>fh",
-      key(function(builtin, themes)
+      key(function(builtin)
         builtin.help_tags()
       end),
     },
     {
       desc = "Find current word/string",
       "<leader>fw",
-      key(function(builtin, themes)
+      key(function(builtin)
         builtin.grep_string({
           layout_config = {
             width = 0.9,
@@ -88,7 +88,7 @@ return {
     {
       desc = "Find live search",
       "<leader>fs",
-      key(function(builtin, themes)
+      key(function(builtin)
         builtin.live_grep({
           layout_config = {
             width = 0.9,
@@ -99,7 +99,7 @@ return {
     {
       desc = "Find diagnostics",
       "<leader>fd",
-      key(function(builtin, themes)
+      key(function(builtin)
         builtin.diagnostics()
       end),
     },
