@@ -1,58 +1,53 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
-  config = function()
-    local treesitter = import("nvim-treesitter.configs")
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "windwp/nvim-ts-autotag",
+  },
+  config = import.config(function(use)
+    local ok, treesitter = use({ "nvim-treesitter.configs" })
 
-    if treesitter then
+    if ok then
       treesitter.setup({
-        -- A list of parser names, or "all" (the five listed parsers should always be installed)
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "go", "rust" },
-
-        -- Install parsers synchronously (only applied to `ensure_installed`)
-        sync_install = false,
-
-        -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-        auto_install = true,
-
+        highlight = {
+          enable = true,
+        },
         indent = {
           enable = true,
         },
-
-        highlight = {
+        autotag = {
           enable = true,
-
-          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-          -- Using this option may slow down your editor, and you may see some duplicate highlights.
-          -- Instead of true it can also be a list of languages
-          additional_vim_regex_highlighting = false,
+        },
+        ensure_installed = {
+          "json",
+          "javascript",
+          "typescript",
+          "tsx",
+          "yaml",
+          "html",
+          "css",
+          "prisma",
+          "markdown",
+          "markdown_inline",
+          "bash",
+          "lua",
+          "vim",
+          "dockerfile",
+          "gitignore",
+          "query",
         },
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = '<c-space>',
-            node_incremental = '<c-space>',
-            scope_incremental = '<c-s>',
-            node_decremental = '<c-backspace>'
-          }
-        },
-        textobjects = {
-          move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-              ['[f'] = '@function.outer',
-              ['[c'] = '@class.outer',
-            },
-            goto_next_end = {
-              [']f'] = '@function.outer',
-              [']c'] = '@class.outer'
-            }
+            init_selection = "<C-space>",
+            node_incremental = "<C-space>",
+            scope_incremental = false,
+            node_decremental = "<bs>",
           },
-        }
+        },
       })
     end
-  end
+  end)
 }

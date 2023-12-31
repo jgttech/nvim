@@ -1,11 +1,24 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    local lualine = import("lualine")
+  config = import.config(function(use)
+    local ok, lualine, lazy_status = use({ "lualine", "lazy.status" })
 
-    if lualine then
-      lualine.setup()
+    if ok then
+      lualine.setup({
+        sections = {
+          lualine_x = {
+            {
+              lazy_status.updates,
+              cond = lazy_status.has_updates,
+              color = { fg = "#ff9e64" },
+            },
+            { "encoding" },
+            { "fileformat" },
+            { "filetype" },
+          },
+        },
+      })
     end
-  end
+  end)
 }

@@ -41,4 +41,14 @@ keymap({
 
   { "n",          "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]] },
   { "n",          "<leader>x", "<cmd>!chmod +x %<CR>",                                { silent = true } },
+
+  -- window management
+  { "n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }},
+  { "n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }},
+  { "n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }},
+  { "n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }},
+
+  -- clear search highlights
+  { "n", "<leader>ch", ":nohl<CR>", { desc = "Clear search highlights" }},
 })
+
