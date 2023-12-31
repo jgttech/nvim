@@ -3,6 +3,11 @@ local opt = vim.opt -- for conciseness
 -- Leader keymap
 vim.g.mapleader = " "
 
+-- Required for some plugins to happen at the very top
+-- Disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
