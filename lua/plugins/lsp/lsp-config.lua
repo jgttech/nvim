@@ -55,7 +55,30 @@ return {
       lspconfig.tailwindcss.setup(server_setup)
       lspconfig.prismals.setup(server_setup)
       lspconfig.pyright.setup(server_setup)
-      lspconfig.tailwindcss.setup(server_setup)
+      lspconfig.tailwindcss.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                "\\$`([^`]*)", -- $`...`
+                "classes`([^`]*)", -- classes`...`
+                'tw="([^"]*)', -- <div tw="..." />
+                "tw='([^']*)", -- <div tw='...' />
+                'tw={"([^"}]*)', -- <div tw={"..."} />
+                "tw={'([^'}]*)", -- <div tw={'...'} />
+                "tw={`([^`}]*)", -- <div tw={`...`} />
+                'className="([^"]*)', -- <div className="..." />
+                "className='([^']*)", -- <div className='...' />
+                'className={"([^"}]*)', -- <div className={"..."} />
+                "className={'([^'}]*)", -- <div className={'...'} />
+                "className={`([^`}]*)", -- <div className={`...`} />
+              },
+            },
+          },
+        },
+      })
 
       lspconfig.lua_ls.setup({
         capabilities = capabilities,

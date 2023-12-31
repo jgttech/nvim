@@ -39,7 +39,7 @@ keymap({
   -- Disable capital Q
   { "n", "Q", "<nop>" },
 
-  { "n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]] },
+  { "n", "<leader>sa", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]] },
   { "n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true } },
 
   -- window management
