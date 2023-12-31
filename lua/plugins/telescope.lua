@@ -138,6 +138,7 @@ return {
       "<leader>fr",
       key(function(builtin, themes)
         builtin.oldfiles(themes.get_dropdown({
+          previewer = false,
           layout_config = {
             width = 0.7,
             height = 0.9,
