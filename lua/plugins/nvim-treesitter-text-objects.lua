@@ -4,7 +4,7 @@ return {
   config = import.config(function(use)
     local ok, treesitter, move = use({
       "nvim-treesitter.configs",
-      "nvim-treesitter.textobjects.repeatable_move"
+      "nvim-treesitter.textobjects.repeatable_move",
     })
 
     if ok then
@@ -94,19 +94,18 @@ return {
           },
         },
       })
-      
+
       keymap({
         -- vim way: ; goes to the direction you were moving.
-        { { "n", "x", "o" }, ";", move.repeat_last_move},
-        { { "n", "x", "o" }, ",", move.repeat_last_move_opposite},
+        { { "n", "x", "o" }, ";", move.repeat_last_move },
+        { { "n", "x", "o" }, ",", move.repeat_last_move_opposite },
 
         -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
-        { { "n", "x", "o" }, "f", move.builtin_f},
-        { { "n", "x", "o" }, "F", move.builtin_F},
-        { { "n", "x", "o" }, "t", move.builtin_t},
-        { { "n", "x", "o" }, "T", move.builtin_T},
+        { { "n", "x", "o" }, "f", move.builtin_f },
+        { { "n", "x", "o" }, "F", move.builtin_F },
+        { { "n", "x", "o" }, "t", move.builtin_t },
+        { { "n", "x", "o" }, "T", move.builtin_T },
       })
     end
-  end)
+  end),
 }
-

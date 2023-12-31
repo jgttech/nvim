@@ -26,7 +26,7 @@ local use = function(dependencies_table)
     table.insert(mods, mod)
   end
 
-  return ok, unpack(mods)
+  return ok, table.unpack(mods)
 end
 
 import = {
@@ -44,5 +44,5 @@ import = {
         config_fn(use, ...)
       end
     end
-  end
+  end,
 }

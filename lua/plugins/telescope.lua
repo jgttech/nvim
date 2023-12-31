@@ -18,9 +18,9 @@ return {
     "nvim-tree/nvim-web-devicons",
     "nvim-telescope/telescope-media-files.nvim",
     {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
-    }
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    },
   },
   keys = {
     {
@@ -32,9 +32,9 @@ return {
           layout_config = {
             width = 0.6,
             height = 0.75,
-          }
+          },
         }))
-      end)
+      end),
     },
     {
       desc = "Find files",
@@ -43,10 +43,10 @@ return {
         builtin.find_files({
           previewer = false,
           layout_config = {
-            width = 0.5
-          }
+            width = 0.5,
+          },
         })
-      end)
+      end),
     },
     {
       desc = "Find git files",
@@ -55,24 +55,24 @@ return {
         builtin.git_files({
           previewer = false,
           layout_config = {
-            width = 0.5
-          }
+            width = 0.5,
+          },
         })
-      end)
+      end),
     },
     {
       desc = "Find keymaps",
       "<leader>fk",
       key(function(builtin, themes)
-        builtin.keymaps() 
-      end)
+        builtin.keymaps()
+      end),
     },
     {
       desc = "Find help",
       "<leader>fh",
       key(function(builtin, themes)
         builtin.help_tags()
-      end)
+      end),
     },
     {
       desc = "Find current word/string",
@@ -80,10 +80,10 @@ return {
       key(function(builtin, themes)
         builtin.grep_string({
           layout_config = {
-            width = 0.9
-          }
+            width = 0.9,
+          },
         })
-      end)
+      end),
     },
     {
       desc = "Find live search",
@@ -91,17 +91,17 @@ return {
       key(function(builtin, themes)
         builtin.live_grep({
           layout_config = {
-            width = 0.9
-          }
+            width = 0.9,
+          },
         })
-      end)
+      end),
     },
     {
       desc = "Find diagnostics",
       "<leader>fd",
       key(function(builtin, themes)
         builtin.diagnostics()
-      end)
+      end),
     },
     {
       desc = "Fuzzily search in current buffer",
@@ -113,9 +113,9 @@ return {
           layout_config = {
             width = 0.6,
             height = 0.9,
-          }
+          },
         }))
-      end)
+      end),
     },
     {
       desc = "Find media files",
@@ -128,10 +128,10 @@ return {
             layout_config = {
               width = 0.9,
               height = 0.9,
-            }
+            },
           })
         end
-      end
+      end,
     },
     {
       desc = "Find recent files",
@@ -141,12 +141,12 @@ return {
           layout_config = {
             width = 0.7,
             height = 0.9,
-          }
+          },
         }))
-      end)
-    }
+      end),
+    },
   },
-  config = import.config(function (use)
+  config = import.config(function(use)
     local ok, telescope, actions = use({ "telescope", "telescope.actions" })
 
     if ok then
@@ -158,23 +158,23 @@ return {
               ["<C-k>"] = actions.move_selection_previous,
               ["<C-j>"] = actions.move_selection_next,
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            }
-          }
+            },
+          },
         },
         extensions = {
           fzf = {
             fuzzy = true,
-            case_mode = "smart_case"
+            case_mode = "smart_case",
           },
           media_files = {
             filetypes = { "png", "webp", "jpg", "jpeg", "webm", "pdf" },
-            find_cmd = "rg"
+            find_cmd = "rg",
           },
-        }
+        },
       })
 
-      telescope.load_extension('media_files')
+      telescope.load_extension("media_files")
       telescope.load_extension("fzf")
     end
-  end)
+  end),
 }

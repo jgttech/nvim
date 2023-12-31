@@ -6,7 +6,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
   },
   config = import.config(function(use)
-    local ok, mason_null_ls, null_ls, null_ls_utils = use({ "mason-null-ls", "null-ls", "null-ls.utils"})
+    local ok, mason_null_ls, null_ls, null_ls_utils = use({ "mason-null-ls", "null-ls", "null-ls.utils" })
 
     if ok then
       mason_null_ls.setup({

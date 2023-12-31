@@ -29,14 +29,14 @@ return {
           { "n", "gd", "<cmd>Telescope lsp_definitions<cr>", options("Show LSP definitions") },
           { "n", "gi", "<cmd>Telescope lsp_implementations<cr>", options("Show LSP implementations") },
           { "n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", options("Show LSP type definitions") },
-          { {"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, options("See available code actions") },
+          { { "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, options("See available code actions") },
           { "n", "<leader>rn", vim.lsp.buf.rename, options("Smart rename") },
           { "n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", options("Show buffer diagnostics") },
           { "n", "<leader>d", vim.diagnostic.open_float, options("Show line diagnostics") },
-          {"n", "[d", vim.diagnostic.goto_prev, options("Go to previous diagnostic")},
-          {"n", "]d", vim.diagnostic.goto_next, options("Go to next diagnostic")},
-          {"n", "K", vim.lsp.buf.hover, options("Show documentation for what is under cursor")},
-          {"n", "<leader>rs", ":LspRestart<CR>", options("Restart LSP")},
+          { "n", "[d", vim.diagnostic.goto_prev, options("Go to previous diagnostic") },
+          { "n", "]d", vim.diagnostic.goto_next, options("Go to next diagnostic") },
+          { "n", "K", vim.lsp.buf.hover, options("Show documentation for what is under cursor") },
+          { "n", "<leader>rs", ":LspRestart<CR>", options("Restart LSP") },
         })
       end
 
@@ -76,5 +76,5 @@ return {
         },
       })
     end
-  end)
+  end),
 }

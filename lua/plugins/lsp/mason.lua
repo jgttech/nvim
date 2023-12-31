@@ -8,7 +8,7 @@ return {
     local ok, mason, mason_lspconfig, mason_tool_installer = use({
       "mason",
       "mason-lspconfig",
-      "mason-tool-installer"
+      "mason-tool-installer",
     })
 
     if ok then
@@ -35,7 +35,7 @@ return {
         },
         automatic_installation = true, -- not the same as ensure_installed
       })
-      
+
       mason_tool_installer.setup({
         ensure_installed = {
           "prettier",
@@ -47,5 +47,5 @@ return {
         },
       })
     end
-  end)
+  end),
 }

@@ -45,5 +45,5 @@ return {
         },
       })
     end
-  end)
+  end),
 }

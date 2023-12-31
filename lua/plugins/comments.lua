@@ -4,7 +4,7 @@ return {
   dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
-  config = import.config(function (use)
+  config = import.config(function(use)
     local ok, comment, ts_context_comment, comment_nvim = use({
       "Comment",
       "ts_context_commentstring",
@@ -21,5 +21,5 @@ return {
         pre_hook = comment_nvim.create_pre_hook(),
       })
     end
-  end)
+  end),
 }
