@@ -55,6 +55,7 @@ return {
       lspconfig.tailwindcss.setup(server_setup)
       lspconfig.prismals.setup(server_setup)
       lspconfig.pyright.setup(server_setup)
+      lspconfig.tailwindcss.setup(server_setup)
 
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
