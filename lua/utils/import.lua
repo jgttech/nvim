@@ -1,3 +1,11 @@
+local unwrap = function(...)
+  if table.unpack then
+    return table.unpack(...)
+  end
+
+  return unpack(...)
+end
+
 local use = function(dependencies_table)
   -- The overall "ok" boolean status of loading all
   -- the dependencies. This will get set to "false"
@@ -26,7 +34,7 @@ local use = function(dependencies_table)
     table.insert(mods, mod)
   end
 
-  return ok, table.unpack(mods)
+  return ok, unwrap(mods)
 end
 
 import = {
