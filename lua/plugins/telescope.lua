@@ -153,6 +153,9 @@ return {
     if ok then
       telescope.setup({
         defaults = {
+          file_ignore_patterns = {
+            "node%_modules/.*",
+          },
           path_display = { "truncate" },
           mappings = {
             i = {
