@@ -32,6 +32,7 @@ return {
           "emmet_ls",
           "prismals",
           "pyright",
+          "gopls",
         },
         automatic_installation = true, -- not the same as ensure_installed
       })
@@ -40,10 +41,12 @@ return {
         ensure_installed = {
           "prettier",
           "stylua",
+          "prismals",
           "isort",
           "black",
           "pylint",
           "eslint_d",
+          "gopls",
         },
       })
     end
