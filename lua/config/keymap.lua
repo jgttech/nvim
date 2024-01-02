@@ -9,10 +9,10 @@ keymap({
   { "n", "<C-l>", "<C-w>l" },
 
   -- Resizing windows with arrows
-  { "n", "<C-Up>", ":resize +1<cr>" },
-  { "n", "<C-Down>", ":resize +1<cr>" },
-  { "n", "<C-Left>", ":vertical resize -1<cr>" },
-  { "n", "<C-Right>", ":vertical resize +1<cr>" },
+  -- { "n", "<C-Up>", ":resize +1<cr>" },
+  -- { "n", "<C-Down>", ":resize +1<cr>" },
+  -- { "n", "<C-Left>", ":vertical resize -1<cr>" },
+  -- { "n", "<C-Right>", ":vertical resize +1<cr>" },
 
   -- Switch buffers
   { "n", "<S-l>", ":bnext<cr>" },

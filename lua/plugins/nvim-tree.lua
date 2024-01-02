@@ -15,7 +15,7 @@ return {
         -- configure nvim-tree
         nvimtree.setup({
           view = {
-            width = 35,
+            width = 45,
             relativenumber = true,
           },
           -- change folder arrow icons
@@ -52,6 +52,8 @@ return {
           },
           { "n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" } },
           { "n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" } },
+          { "n", "<S-Right>", "<cmd>NvimTreeResize +1<cr>", { desc = "Increase the file explorer size" } },
+          { "n", "<S-Left>", "<cmd>NvimTreeResize -1<cr>", { desc = "Increase the file explorer size" } },
         })
       end
     end),
