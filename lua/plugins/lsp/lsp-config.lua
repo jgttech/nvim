@@ -15,11 +15,16 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
+    { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+    "nvim-lua/plenary.nvim",
+    "rafi/neoconf-venom.nvim",
   },
   config = import.config(function(use)
-    local ok, lspconfig, cmp_nvim_lsp = use({ "lspconfig", "cmp_nvim_lsp" })
+    local ok, lspconfig, cmp_nvim_lsp, venom = use({ "lspconfig", "cmp_nvim_lsp", "venom" })
 
     if ok then
+      venom.setup()
+
       local on_attach = function(_, bufnr)
         local options = from_options_with_buffer(bufnr)
 
@@ -54,8 +59,8 @@ return {
       lspconfig.cssls.setup(server_setup)
       lspconfig.tailwindcss.setup(server_setup)
       lspconfig.prismals.setup(server_setup)
-      lspconfig.pyright.setup(server_setup)
       lspconfig.gopls.setup(server_setup)
+      lspconfig.pyright.setup(server_setup)
       lspconfig.tailwindcss.setup({
         capabilities = capabilities,
         on_attach = on_attach,
