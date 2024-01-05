@@ -20,6 +20,8 @@ return {
           },
           -- change folder arrow icons
           renderer = {
+            highlight_git = true,
+            highlight_diagnostics = true,
             indent_markers = {
               enable = true,
             },
@@ -38,7 +40,11 @@ return {
             custom = { ".DS_Store" },
           },
           git = {
+            enable = true,
             ignore = false,
+          },
+          update_focused_file = {
+            enable = true,
           },
         })
 
