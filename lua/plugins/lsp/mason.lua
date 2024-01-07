@@ -33,6 +33,8 @@ return {
           "prismals",
           "pyright",
           "gopls",
+          "jsonls",
+          "yamlls",
         },
         automatic_installation = true, -- not the same as ensure_installed
       })

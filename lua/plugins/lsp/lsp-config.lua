@@ -18,9 +18,10 @@ return {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     "nvim-lua/plenary.nvim",
     "rafi/neoconf-venom.nvim",
+    "b0o/schemastore.nvim",
   },
   config = import.config(function(use)
-    local ok, lspconfig, cmp_nvim_lsp, venom = use({ "lspconfig", "cmp_nvim_lsp", "venom" })
+    local ok, lspconfig, cmp_nvim_lsp, venom, schemastore = use({ "lspconfig", "cmp_nvim_lsp", "venom", "schemastore" })
 
     if ok then
       venom.setup()
@@ -61,6 +62,32 @@ return {
       lspconfig.prismals.setup(server_setup)
       lspconfig.gopls.setup(server_setup)
       lspconfig.pyright.setup(server_setup)
+
+      lspconfig.jsonls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          json = {
+            schemas = schemastore.json.schemas(),
+            validate = {
+              enable = true,
+            },
+          },
+        },
+      })
+
+      lspconfig.yamlls.setup({
+        settings = {
+          yaml = {
+            schemas = schemastore.yaml.schemas(),
+            schemaStore = {
+              enable = false,
+              url = "",
+            },
+          },
+        },
+      })
+
       lspconfig.tailwindcss.setup({
         capabilities = capabilities,
         on_attach = on_attach,
