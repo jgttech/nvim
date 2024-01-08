@@ -4,17 +4,7 @@ return {
     local ok, kanagawa = use({ "kanagawa" })
 
     if ok then
-      kanagawa.setup({
-        colors = {
-          theme = {
-            all = {
-              ui = {
-                bg_gutter = "none",
-              },
-            },
-          },
-        },
-      })
+      kanagawa.setup({})
     end
   end),
 }
