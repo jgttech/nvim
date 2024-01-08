@@ -35,6 +35,7 @@ return {
           "gopls",
           "jsonls",
           "yamlls",
+          "bashls",
         },
         automatic_installation = true, -- not the same as ensure_installed
       })
@@ -49,6 +50,16 @@ return {
           "pylint",
           "eslint_d",
           "gopls",
+          "golines",
+          "goimports",
+          "json-lsp",
+          "shellcheck",
+          "bash-language-server",
+          "lua-language-server",
+          "typescript-language-server",
+          "yaml-language-server",
+          "dockerfile-language-server",
+          "docker-compose-language-service",
         },
       })
     end

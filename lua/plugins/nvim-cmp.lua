@@ -8,6 +8,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
     "onsails/lspkind.nvim",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
   },
   config = import.config(function(use)
     local ok, cmp, luasnip, lspkind = use({ "cmp", "luasnip", "lspkind" })
@@ -33,15 +34,47 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
+          { name = "nvim_lsp_signature_help" },
           { name = "luasnip" },
-          { name = "buffer" },
           { name = "path" },
+          { name = "buffer" },
         }),
         formatting = {
-          format = lspkind.cmp_format({
-            maxwidth = 50,
-            ellipsis_char = "...",
+          fields = { "kind", "abbr", "menu" },
+          format = function(entry, vim_item)
+            local kind = lspkind.cmp_format({
+              mode = "symbol_text",
+              maxwidth = 50,
+            })(entry, vim_item)
+
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+
+            if strings[1] ~= "Copilot" then
+              kind.kind = " " .. strings[1] .. " "
+              kind.menu = "    (" .. strings[2] .. ")"
+            else
+              kind.kind = " " .. vim.fn.nr2char(0xe708) .. " "
+              kind.menu = "    (" .. "copilot" .. ")"
+            end
+
+            return kind
+          end,
+        },
+        window = {
+          completion = cmp.config.window.bordered({
+            col_offset = -3,
+            side_padding = 0,
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
           }),
+          documentation = cmp.config.window.bordered({
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+          }),
+        },
+        view = {
+          entries = { name = "custom", selection_order = "near_cursor" },
+        },
+        experimental = {
+          ghost_text = true,
         },
       })
     end
