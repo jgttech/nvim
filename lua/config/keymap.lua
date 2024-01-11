@@ -50,4 +50,7 @@ keymap({
 
   -- clear search highlights
   { "n", "<leader>ch", ":nohl<CR>", { desc = "Clear search highlights" } },
+
+  -- nvim-tree focus
+  { "n", "<leader>tt", "<cmd>NvimTreeFocus<cr>", { desc = "Focus to the nvim-tree" } },
 })

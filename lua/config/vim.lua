@@ -55,3 +55,6 @@ opt.backup = false
 -- update options
 vim.opt.updatetime = 50
 vim.g.editorconfig = true
+
+-- disable mouse
+vim.opt.mouse = ""
