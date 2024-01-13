@@ -53,4 +53,9 @@ keymap({
 
   -- nvim-tree focus
   { "n", "<leader>tt", "<cmd>NvimTreeFocus<cr>", { desc = "Focus to the nvim-tree" } },
+
+  -- buffer comamnds
+  { "n", "<leader>q", "<cmd>Bdelete this<cr>", { desc = "Close the current buffer" } },
+  { "n", "<leader>bo", "<cmd>Bdelete other<cr>", { desc = "Close all buffers except current one" } },
+  { "n", "<leader>bm", "<cmd>Bdelete menu<cr>", { desc = "Interactively choose how to delete buffers" } },
 })
