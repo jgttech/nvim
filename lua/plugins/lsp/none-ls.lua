@@ -41,7 +41,7 @@ return {
           diagnostics.pylint,
           diagnostics.eslint_d.with({
             condition = function(utils)
-              return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" })
+              return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs", "eslint.config.js" })
             end,
           }),
         },
