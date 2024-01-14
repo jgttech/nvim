@@ -49,6 +49,7 @@ return {
           "black",
           "pylint",
           "eslint_d",
+          "eslint-lsp",
           "gopls",
           "golines",
           "goimports",
