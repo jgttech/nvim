@@ -58,4 +58,8 @@ keymap({
   { "n", "<leader>q", "<cmd>Bdelete this<cr>", { desc = "Close the current buffer" } },
   { "n", "<leader>bo", "<cmd>Bdelete other<cr>", { desc = "Close all buffers except current one" } },
   { "n", "<leader>bm", "<cmd>Bdelete menu<cr>", { desc = "Interactively choose how to delete buffers" } },
+
+  -- Markdown preview comamnds
+  { "n", "<leader>mp", "<cmd>MarkdownPreview<cr>", { desc = "Run the markdown preview" } },
+  { "n", "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", { desc = "Run the markdown preview stop" } },
 })
