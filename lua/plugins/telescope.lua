@@ -14,6 +14,7 @@ return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
   dependencies = {
+    "nvim-lua/popup.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "nvim-telescope/telescope-media-files.nvim",
