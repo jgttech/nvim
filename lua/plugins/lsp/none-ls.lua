@@ -12,6 +12,7 @@ return {
       mason_null_ls.setup({
         ensure_installed = {
           "prettier",
+          "biome",
           "stylua",
           "black",
           "pylint",
@@ -34,6 +35,7 @@ return {
         sources = {
           --  to disable file types use
           --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
+          formatting.biome,
           formatting.prettier,
           formatting.stylua,
           formatting.isort,
