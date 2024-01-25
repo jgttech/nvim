@@ -47,3 +47,15 @@ require('mason-tool-installer').setup({
   auto_update = true,
   run_on_start = true
 })
+
+require('mason-null-ls').setup({
+  ensure_installed = {
+    "prettier",
+    "biome",
+    "stylua",
+    "black",
+    "pylint",
+    "eslint_d",
+    "gofmt",
+  }
+})
