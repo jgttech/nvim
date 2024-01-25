@@ -1,15 +1,15 @@
--- This configuration, according to the lsp-zero
--- documentation, should only be run AFTER the Lazy
--- plugin manager has been run.
-local lsp_zero = require('lsp-zero')
-
-lsp_zero.on_attach(function(_, bufnr)
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
+local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  -- Options: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+  handlers = {
+    function(server)
+      lspconfig[server].setup({
+        capabilities = capabilities,
+      })
+    end
+  },
   ensure_installed = {
     'bashls',
     'cssmodules_ls',
@@ -36,8 +36,5 @@ require('mason-lspconfig').setup({
     'lemminx',
     'yamlls',
     'zls',
-  },
-  handlers = {
-    lsp_zero.default_setup,
   },
 })
