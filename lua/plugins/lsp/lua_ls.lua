@@ -1,21 +1,22 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-require('lspconfig').lua_ls.setup({
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT'
+return {
+  load = function(_, lspconfig, capabilities)
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          runtime = {
+            version = "LuaJIT",
+          },
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            library = {
+              vim.env.VIMRUNTIME,
+            },
+          },
+        },
       },
-      diagnostics = {
-        globals = {'vim'},
-      },
-      workspace = {
-        library = {
-          vim.env.VIMRUNTIME,
-        }
-      }
-    }
-  }
-})
-
+    })
+  end,
+}
