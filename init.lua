@@ -19,10 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy")
 
-lazy.setup({
-  { import = "plugins.lsp" },
-  { import = "plugins" },
-}, {
+lazy.setup("plugins", {
   install = {
     missing = true,
   },
@@ -38,6 +35,6 @@ lazy.setup({
 -- Everything after the package manager plugins are
 -- invoked is whatever else that is NOT package manager
 -- specific.
-require 'settings'
-require 'config'
-require 'keymap'
+require("settings")
+require("config")
+require("keymap")
