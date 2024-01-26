@@ -1,8 +1,6 @@
 return {
-  setup = function(args)
-    local lspconfig = args.lspconfig
-
-    lspconfig.eslint.setup({
+  setup = function(configure)
+    require("lspconfig").eslint.setup(configure({
       settings = {
         packageManager = "yarn",
       },
@@ -12,6 +10,6 @@ return {
           command = "EslintFixAll",
         })
       end,
-    })
+    }))
   end,
 }

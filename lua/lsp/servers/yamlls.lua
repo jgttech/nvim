@@ -1,9 +1,8 @@
 return {
-  setup = function(args)
-    local lspconfig = args.lspconfig
+  setup = function(configure)
     local schemastore = require("schemastore")
 
-    lspconfig.yamlls.setup({
+    require("lspconfig").yamlls.setup(configure({
       settings = {
         yaml = {
           schemas = schemastore.yaml.schemas(),
@@ -13,6 +12,6 @@ return {
           },
         },
       },
-    })
+    }))
   end,
 }

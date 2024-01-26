@@ -1,8 +1,6 @@
 return {
-  setup = function(args)
-    local lspconfig = args.lspconfig
-
-    lspconfig.lua_ls.setup({
+  setup = function(configure)
+    require("lspconfig").lua_ls.setup(configure({
       settings = {
         Lua = {
           runtime = {
@@ -18,6 +16,6 @@ return {
           },
         },
       },
-    })
+    }))
   end,
 }

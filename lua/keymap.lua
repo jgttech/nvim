@@ -1,11 +1,5 @@
 local map = vim.keymap.set
 
--- note: diagnostics are not exclusive to lsp servers
--- so these can be global keybindings
-map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
-map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
-
 -- Better window navigation
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
@@ -62,3 +56,9 @@ map("n", "<leader>bm", "<cmd>Bdelete menu<cr>", { desc = "Interactively choose h
 -- Markdown preview commands
 map("n", "<leader>mp", "<cmd>MarkdownPreview<cr>", { desc = "Run the markdown preview" })
 map("n", "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", { desc = "Run the markdown preview stop" })
+
+-- note: diagnostics are not exclusive to lsp servers
+-- so these can be global keybindings
+map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
+map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")

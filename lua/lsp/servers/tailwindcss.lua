@@ -1,8 +1,6 @@
 return {
-  setup = function(args)
-    local lspconfig = args.lspconfig
-
-    lspconfig.tailwindcss.setup({
+  setup = function(configure)
+    require("lspconfig").tailwindcss.setup(configure({
       settings = {
         tailwindCSS = {
           experimental = {
@@ -23,6 +21,6 @@ return {
           },
         },
       },
-    })
+    }))
   end,
 }
