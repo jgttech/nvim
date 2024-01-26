@@ -5,6 +5,7 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "windwp/nvim-ts-autotag",
+    "folke/neodev.nvim",
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -40,6 +41,7 @@ return {
         "html",
         "javascript",
         "json5",
+        "jsonc",
         "lua",
         "python",
         "prisma",

@@ -3,7 +3,7 @@ local map = vim.keymap.set
 -- I wanted to abstract out the LSP configuration and setup
 -- from the plugin itself because this could get very complex
 -- over time as things are added, removed, and updated.
-local function lsp()
+local function config()
   local lspconfig = require("lspconfig")
   local split = require("utils.split")
   local utils = require("lsp.utils")
@@ -43,4 +43,4 @@ local function lsp()
   end
 end
 
-return lsp
+return config
