@@ -1,5 +1,7 @@
 return {
-  load = function(_, lspconfig)
+  setup = function(args)
+    local lspconfig = args.lspconfig
+
     lspconfig.eslint.setup({
       settings = {
         packageManager = "yarn",

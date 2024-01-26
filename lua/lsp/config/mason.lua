@@ -1,5 +1,9 @@
 return {
-  load = function(opts, lspconfig, capabilities)
+  setup = function(args)
+    local opts = args.opts
+    local lspconfig = args.lspconfig
+    local capabilities = args.capabilities
+
     require("mason").setup({
       ui = {
         icons = {

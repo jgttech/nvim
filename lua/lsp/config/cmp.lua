@@ -1,5 +1,5 @@
 return {
-  load = function()
+  setup = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 

@@ -1,0 +1,20 @@
+return {
+  "neovim/nvim-lspconfig",
+  -- event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "jay-babu/mason-null-ls.nvim",
+    "L3MON4D3/LuaSnip",
+    "nvimtools/none-ls.nvim",
+    "nvim-lua/plenary.nvim",
+    "rafi/neoconf-venom.nvim",
+    "b0o/schemastore.nvim",
+    { "antosha417/nvim-lsp-file-operations", config = true },
+    { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+  },
+  config = require("lsp"),
+}

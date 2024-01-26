@@ -1,5 +1,5 @@
 return {
-  load = function()
+  setup = function()
     local null_ls = require("null-ls")
     local null_ls_utils = require("null-ls.utils")
     local formatting = null_ls.builtins.formatting
