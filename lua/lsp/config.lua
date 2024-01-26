@@ -8,8 +8,8 @@ return {
     ensure_installed = {
       "bashls",
       "biome",
-      "cssmodules_ls",
-      "denols",
+      "cssls",
+      -- "denols",
       "diagnosticls",
       "docker_compose_language_service",
       "dockerls",
