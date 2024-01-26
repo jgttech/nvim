@@ -2,9 +2,10 @@
 -- building the keymap functions.
 local key = function(keymap_callback)
   return function()
-    local ok, builtin, themes = import.use({ "telescope.builtin", "telescope.themes" })
+    local builtin = require("telescope.builtin")
+    local themes = require("telescope.themes")
 
-    if ok and keymap_callback then
+    if keymap_callback then
       keymap_callback(builtin, themes)
     end
   end
@@ -122,16 +123,12 @@ return {
       desc = "Find media files",
       "<leader>fm",
       function()
-        local ok, telescope = import.use({ "telescope" })
-
-        if ok then
-          telescope.extensions.media_files.media_files({
-            layout_config = {
-              width = 0.9,
-              height = 0.9,
-            },
-          })
-        end
+        require("telescope").extensions.media_files.media_files({
+          layout_config = {
+            width = 0.9,
+            height = 0.9,
+          },
+        })
       end,
     },
     {
@@ -148,38 +145,37 @@ return {
       end),
     },
   },
-  config = import.config(function(use)
-    local ok, telescope, actions = use({ "telescope", "telescope.actions" })
+  config = function()
+    local telescope = require("telescope")
+    local actions = require("telescope.actions")
 
-    if ok then
-      telescope.setup({
-        defaults = {
-          file_ignore_patterns = {
-            "node%_modules/.*",
-          },
-          path_display = { "truncate" },
-          mappings = {
-            i = {
-              ["<C-k>"] = actions.move_selection_previous,
-              ["<C-j>"] = actions.move_selection_next,
-              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            },
+    telescope.setup({
+      defaults = {
+        file_ignore_patterns = {
+          "node%_modules/.*",
+        },
+        path_display = { "truncate" },
+        mappings = {
+          i = {
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
-        extensions = {
-          fzf = {
-            fuzzy = true,
-            case_mode = "smart_case",
-          },
-          media_files = {
-            filetypes = { "png", "webp", "jpg", "jpeg", "webm", "pdf" },
-            find_cmd = "rg",
-          },
+      },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          case_mode = "smart_case",
         },
-      })
+        media_files = {
+          filetypes = { "png", "webp", "jpg", "jpeg", "webm", "pdf" },
+          find_cmd = "rg",
+        },
+      },
+    })
 
-      telescope.load_extension("media_files")
-      telescope.load_extension("fzf")
-    end
-  end),
+    telescope.load_extension("media_files")
+    telescope.load_extension("fzf")
+  end,
 }
