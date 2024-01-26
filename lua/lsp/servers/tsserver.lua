@@ -1,5 +1,5 @@
 return {
-  setup = function(configure)
-    require("lspconfig").tsserver.setup(configure())
+  setup = function(tsserver, configure)
+    tsserver.setup(configure())
   end,
 }

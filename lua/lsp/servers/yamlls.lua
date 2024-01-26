@@ -1,8 +1,8 @@
 return {
-  setup = function(configure)
+  setup = function(yamlls, configure)
     local schemastore = require("schemastore")
 
-    require("lspconfig").yamlls.setup(configure({
+    yamlls.setup(configure({
       settings = {
         yaml = {
           schemas = schemastore.yaml.schemas(),

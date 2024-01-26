@@ -1,5 +1,5 @@
 return {
-  setup = function(configure)
-    require("lspconfig").prismals.setup(configure())
+  setup = function(prismals, configure)
+    prismals.setup(configure())
   end,
 }

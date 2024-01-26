@@ -1,5 +1,5 @@
 return {
-  setup = function(configure)
-    require("lspconfig").html.setup(configure())
+  setup = function(html, configure)
+    html.setup(configure())
   end,
 }

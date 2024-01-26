@@ -4,6 +4,8 @@ local map = vim.keymap.set
 -- from the plugin itself because this could get very complex
 -- over time as things are added, removed, and updated.
 local function lsp()
+  local lspconfig = require("lspconfig")
+  local split = require("utils.split")
   local utils = require("lsp.utils")
   local configure = utils.create_lsp_config(function(options)
     -- These will be buffer-local keybindings because they
@@ -31,7 +33,13 @@ local function lsp()
 
   -- LSP language configuration
   for _, server in pairs(utils.get_lsp_modules("servers")) do
-    require(server).setup(configure)
+    local import = split(server, ".")
+    local lsp_name = import[#import]
+    local lsp = lspconfig[lsp_name]
+
+    if lsp then
+      require(server).setup(lsp, configure)
+    end
   end
 end
 

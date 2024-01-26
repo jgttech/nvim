@@ -1,6 +1,6 @@
 return {
-  setup = function(configure)
-    require("lspconfig").lua_ls.setup(configure({
+  setup = function(lua_ls, configure)
+    lua_ls.setup(configure({
       settings = {
         Lua = {
           runtime = {

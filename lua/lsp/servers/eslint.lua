@@ -1,6 +1,6 @@
 return {
-  setup = function(configure)
-    require("lspconfig").eslint.setup(configure({
+  setup = function(eslint, configure)
+    eslint.setup(configure({
       settings = {
         packageManager = "yarn",
       },

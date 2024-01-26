@@ -1,8 +1,8 @@
 return {
-  setup = function(configure)
+  setup = function(jsonls, configure)
     local schemastore = require("schemastore")
 
-    require("lspconfig").jsonls.setup(configure({
+    jsonls.setup(configure({
       settings = {
         json = {
           schemas = schemastore.json.schemas(),

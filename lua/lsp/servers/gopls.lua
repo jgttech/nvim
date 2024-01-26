@@ -1,5 +1,5 @@
 return {
-  setup = function(configure)
-    require("lspconfig").gopls.setup(configure())
+  setup = function(gopls, configure)
+    gopls.setup(configure())
   end,
 }

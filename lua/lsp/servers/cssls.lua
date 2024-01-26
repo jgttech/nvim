@@ -1,5 +1,5 @@
 return {
-  setup = function(configure)
-    require("lspconfig").cssls.setup(configure())
+  setup = function(cssls, configure)
+    cssls.setup(configure())
   end,
 }

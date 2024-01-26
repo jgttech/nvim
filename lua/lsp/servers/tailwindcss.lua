@@ -1,6 +1,6 @@
 return {
-  setup = function(configure)
-    require("lspconfig").tailwindcss.setup(configure({
+  setup = function(tailwindcss, configure)
+    tailwindcss.setup(configure({
       settings = {
         tailwindCSS = {
           experimental = {
