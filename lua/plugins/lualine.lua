@@ -59,9 +59,9 @@ return {
             cond = lazy_status.has_updates,
             color = { fg = colors.orange },
           },
-          { "encoding" },
-          { "fileformat" },
-          { "filetype" },
+          -- { "encoding", color = { fg = colors.white } },
+          -- { "fileformat" },
+          -- { "filetype" },
         },
         lualine_y = { "filetype", "progress" },
         lualine_z = {
