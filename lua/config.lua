@@ -1,5 +1,6 @@
 -- vim.cmd.colorscheme("catppuccin-mocha")
-vim.cmd.colorscheme("kanagawa-dragon")
+-- vim.cmd.colorscheme("kanagawa-dragon")
+vim.cmd.colorscheme("kanagawa")
 
 vim.api.nvim_create_autocmd("QuitPre", {
   callback = function()
