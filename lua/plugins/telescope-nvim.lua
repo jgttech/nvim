@@ -2,8 +2,8 @@
 -- building the keymap functions.
 local key = function(keymap_callback)
   return function()
-    local builtin = require('telescope.builtin')
-    local themes = require('telescope.themes')
+    local builtin = require("telescope.builtin")
+    local themes = require("telescope.themes")
 
     if keymap_callback then
       keymap_callback(builtin, themes)
@@ -21,8 +21,7 @@ return {
     "nvim-telescope/telescope-media-files.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
-      build =
-      "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
   },
   keys = {
@@ -124,16 +123,12 @@ return {
       desc = "Find media files",
       "<leader>fm",
       function()
-        local ok, telescope = import.use({ "telescope" })
-
-        if ok then
-          telescope.extensions.media_files.media_files({
-            layout_config = {
-              width = 0.9,
-              height = 0.9,
-            },
-          })
-        end
+        require("telescope").extensions.media_files.media_files({
+          layout_config = {
+            width = 0.9,
+            height = 0.9,
+          },
+        })
       end,
     },
     {
@@ -151,8 +146,8 @@ return {
     },
   },
   config = function()
-    local telescope = require('telescope')
-    local actions = require('telescope.actions')
+    local telescope = require("telescope")
+    local actions = require("telescope.actions")
 
     telescope.setup({
       defaults = {
@@ -182,5 +177,5 @@ return {
 
     telescope.load_extension("media_files")
     telescope.load_extension("fzf")
-  end
+  end,
 }
