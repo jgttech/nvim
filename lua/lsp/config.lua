@@ -25,6 +25,7 @@ return {
       "tsserver",
       "lua_ls",
       "marksman",
+      "prismals",
       "pyright",
       "rust_analyzer",
       "sqlls",
