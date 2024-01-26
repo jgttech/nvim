@@ -43,8 +43,9 @@ return {
     lualine.setup({
       options = {
         theme = bubbles_theme,
-        component_separators = "|",
+        -- component_separators = "|",
         -- section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
       },
       sections = {
@@ -52,14 +53,14 @@ return {
           { "mode", separator = { left = "", right = "" }, right_padding = 2 },
         },
         lualine_b = { "filename", "branch" },
-        lualine_c = { "fileformat" },
+        lualine_c = { { "fileformat", color = { fg = colors.white } } },
         lualine_x = {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
             color = { fg = colors.orange },
           },
-          -- { "encoding", color = { fg = colors.white } },
+          -- { "encoding" },
           -- { "fileformat" },
           -- { "filetype" },
         },
