@@ -10,6 +10,9 @@ return {
   config = function()
     require("lsp-file-operations").setup()
     require("nvim-tree").setup({
+      trash = {
+        cmd = "gio trash",
+      },
       view = {
         -- width = 45,
         relativenumber = true,
