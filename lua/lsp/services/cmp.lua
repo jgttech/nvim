@@ -4,10 +4,6 @@ return {
     local luasnip = require("luasnip")
 
     cmp.setup({
-      -- sources = {
-      --   { name = "nvim_lsp" },
-      --   { name = "luasnip" },
-      -- },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },

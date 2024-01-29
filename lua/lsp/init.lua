@@ -22,6 +22,7 @@ local function config()
     map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", options("LSP code action(s)"))
     map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", options("Show buffer diagnostics"))
     map("n", "<leader>d", vim.diagnostic.open_float, options("Show line diagnostics"))
+    map("n", "<leader>rs", ":LspRestart<CR>", options("Restart LSP"))
   end)
 
   require("venom").setup()
