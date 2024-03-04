@@ -1,10 +1,4 @@
--- Leader keymap
-vim.g.mapleader = " "
-vim.opt.termguicolors = true
-
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+require 'ide.config'
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -21,24 +15,4 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local lazy = require("lazy")
-
-lazy.setup("plugins", {
-  install = {
-    missing = true,
-  },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
-
--- Everything after the package manager plugins are
--- invoked is whatever else that is NOT package manager
--- specific.
-require("settings")
-require("config")
-require("keymap")
+require 'lazy'.setup(require 'ide.plugins')
