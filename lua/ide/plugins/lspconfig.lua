@@ -8,6 +8,7 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/nvim-cmp',
+    'b0o/schemastore.nvim',
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -134,7 +135,6 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      -- clangd = {},
       gopls = {},
       pyright = {},
       rust_analyzer = {},
@@ -146,14 +146,17 @@ return {
       docker_compose_language_service = {},
       eslint = {},
       htmx = {},
-      jsonls = {},
+      jsonls = {
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      },
       prismals = {},
       tailwindcss = {},
-
       lua_ls = {
-        -- cmd = {...},
-        -- filetypes { ...},
-        -- capabilities = {},
         settings = {
           Lua = {
             runtime = { version = 'LuaJIT' },
@@ -172,7 +175,7 @@ return {
               callSnippet = 'Replace',
             },
             -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
+            diagnostics = { disable = { 'missing-fields' } },
           },
         },
       },
