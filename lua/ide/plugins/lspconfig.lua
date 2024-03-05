@@ -144,7 +144,17 @@ return {
       cssmodules_ls = {},
       dockerls = {},
       docker_compose_language_service = {},
-      eslint = {},
+      eslint = {
+        settings = {
+          packageManager = 'yarn',
+        },
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd('BufReadPre', {
+            buffer = bufnr,
+            command = 'EslintFixAll',
+          })
+        end,
+      },
       htmx = {},
       jsonls = {
         settings = {
@@ -158,10 +168,7 @@ return {
         settings = {
           yaml = {
             schemaStore = {
-              -- You must disable built-in schemaStore support if you want to use
-              -- this plugin and its advanced options like `ignore`.
               enable = false,
-              -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
               url = '',
             },
             schemas = require('schemastore').yaml.schemas(),
@@ -169,7 +176,33 @@ return {
         },
       },
       prismals = {},
-      tailwindcss = {},
+      tailwindcss = {
+        settings = {
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                { 'cva\\(([^)]*)\\)', '["\'`]([^"\'`]*).*?["\'`]' },
+                { 'cx\\(([^)]*)\\)', "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                ': `([^`]*)', -- = `...`
+                '= `([^`]*)', -- = `...`
+                'tw`([^`]*)', -- tw`...`
+                '\\$`([^`]*)', -- $`...`
+                'classes`([^`]*)', -- classes`...`
+                'tw="([^"]*)', -- <div tw="..." />
+                "tw='([^']*)", -- <div tw='...' />
+                'tw={"([^"}]*)', -- <div tw={"..."} />
+                "tw={'([^'}]*)", -- <div tw={'...'} />
+                'tw={`([^`}]*)', -- <div tw={`...`} />
+                'className="([^"]*)', -- <div className="..." />
+                "className='([^']*)", -- <div className='...' />
+                'className={"([^"}]*)', -- <div className={"..."} />
+                "className={'([^'}]*)", -- <div className={'...'} />
+                'className={`([^`}]*)', -- <div className={`...`} />
+              },
+            },
+          },
+        },
+      },
       lua_ls = {
         settings = {
           Lua = {
