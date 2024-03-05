@@ -1,4 +1,4 @@
-local plugins = require 'ide.utils.plugins'
+local plugins = require 'ide.utils.autoload'('ide.plugins', true)
 
 -- List of the Lua modules that are loaded.
 -- This list can be either just a string or a <key = value> pair
