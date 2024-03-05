@@ -35,6 +35,7 @@ return plugins {
   'toggleterm',
   'markdown-preview',
   'neo-tree',
+  'close-buffers',
 
   -- If I want to import from a supplied path I can prefix
   -- the path with "@" and the "plugins" function will use
