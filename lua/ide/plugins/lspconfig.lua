@@ -158,6 +158,7 @@ return {
         end,
       },
       htmx = {},
+      html = {},
       jsonls = {
         settings = {
           json = {
