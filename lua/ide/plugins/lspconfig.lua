@@ -157,7 +157,7 @@ return {
           })
         end,
       },
-      htmx = {},
+      -- htmx = {},
       html = {},
       jsonls = {
         settings = {
