@@ -36,6 +36,7 @@ return plugins {
   'markdown-preview',
   'neo-tree',
   'close-buffers',
+  'colorizer',
 
   -- If I want to import from a supplied path I can prefix
   -- the path with "@" and the "plugins" function will use
