@@ -1,6 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.editorconfig = true
+vim.opt.swapfile = false
 
 -- disable netrw
 vim.g.loaded_netrw = 1
