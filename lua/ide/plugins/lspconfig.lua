@@ -180,6 +180,15 @@ return {
       },
       prismals = {},
       tailwindcss = {
+        filetypes = {
+          'typescript',
+          'typescriptreact',
+          'javascript',
+          'javascriptreact',
+          'templ',
+          'css',
+          'html',
+        },
         settings = {
           tailwindCSS = {
             experimental = {
