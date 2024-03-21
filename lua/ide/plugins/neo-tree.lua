@@ -156,7 +156,6 @@ return {
       },
     }
 
-    -- vim.cmd [[nnoremap \ :Neotree toggle current reveal_force_cwd<cr>]]
     vim.keymap.set('n', '<C-n>', '<cmd>Neotree toggle current reveal_force_cwd<cr>')
   end,
 }
