@@ -140,7 +140,7 @@ return {
       gopls = {},
       pyright = {},
       rust_analyzer = {},
-      vtsls = {},
+      -- vtsls = {},
       -- tsserver = {
       --   settings = {
       --     update_in_insert = false,
