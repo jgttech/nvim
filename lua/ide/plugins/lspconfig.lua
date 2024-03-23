@@ -139,7 +139,7 @@ return {
     local servers = {
       gopls = {},
       pyright = {},
-      rust_analyzer = {},
+      -- rust_analyzer = {},
       tsserver = {},
       bashls = {},
       biome = {},
