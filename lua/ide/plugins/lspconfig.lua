@@ -141,11 +141,7 @@ return {
       pyright = {},
       rust_analyzer = {},
       -- vtsls = {},
-      -- tsserver = {
-      --   settings = {
-      --     update_in_insert = false,
-      --   },
-      -- },
+      tsserver = {},
       bashls = {},
       biome = {},
       cssmodules_ls = {},
