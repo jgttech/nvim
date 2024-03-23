@@ -140,11 +140,12 @@ return {
       gopls = {},
       pyright = {},
       rust_analyzer = {},
-      tsserver = {
-        settings = {
-          update_in_insert = false,
-        },
-      },
+      vtsls = {},
+      -- tsserver = {
+      --   settings = {
+      --     update_in_insert = false,
+      --   },
+      -- },
       bashls = {},
       biome = {},
       cssmodules_ls = {},
