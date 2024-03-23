@@ -139,14 +139,18 @@ return {
     local servers = {
       gopls = {},
       pyright = {},
-      -- rust_analyzer = {},
-      tsserver = {},
+      rust_analyzer = {},
+      tsserver = {
+        settings = {
+          update_in_insert = false,
+        },
+      },
       bashls = {},
       biome = {},
       cssmodules_ls = {},
       dockerls = {},
       docker_compose_language_service = {},
-      eslint = {
+      eslint_d = {
         settings = {
           packageManager = 'yarn',
         },
@@ -157,6 +161,17 @@ return {
           })
         end,
       },
+      -- eslint = {
+      --   settings = {
+      --     packageManager = 'yarn',
+      --   },
+      --   on_attach = function(_, bufnr)
+      --     vim.api.nvim_create_autocmd('BufReadPre', {
+      --       buffer = bufnr,
+      --       command = 'EslintFixAll',
+      --     })
+      --   end,
+      -- },
       -- htmx = {},
       html = {},
       jsonls = {
