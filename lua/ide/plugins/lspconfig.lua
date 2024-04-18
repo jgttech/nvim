@@ -144,7 +144,8 @@ return {
       tsserver = {},
       bashls = {},
       biome = {},
-      cssmodules_ls = {},
+      -- cssmodules_ls = {},
+      cssls = {},
       dockerls = {},
       docker_compose_language_service = {},
       eslint_d = {
