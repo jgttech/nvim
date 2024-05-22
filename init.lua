@@ -1,8 +1,13 @@
-require 'ide.config'
-
+local import = require 'utils.autoload'()
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
-if not vim.loop.fs_stat(lazypath) then
+-- Loads the initial config for Neovim
+require 'config.settings'
+require 'config.keymap'
+require 'config.autocmd'
+
+-- Configure Lazy
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system {
     'git',
     'clone',
@@ -13,6 +18,8 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 
+-- All Lazy to path
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup(require 'ide.plugins')
+-- Load Lazy plugins
+require('lazy').setup(import 'plugins')
