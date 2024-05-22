@@ -5,7 +5,3 @@ nvim
 
 spell/
 lazy-lock.json
-/luarocks
-/lua
-/lua_modules
-/.luarocks
