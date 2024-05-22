@@ -32,7 +32,7 @@ return {
     vim.keymap.set('n', '<leader>fb', function()
       conform.format {
         lsp_fallback = true,
-        -- async = true,
+        async = true,
         timeout_ms = 500,
       }
     end, { desc = 'Format file or range (in visual mode)' })
