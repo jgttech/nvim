@@ -7,6 +7,8 @@ return {
   },
   build = ':TSUpdate',
   config = function()
+    require('nvim-ts-autotag').setup {}
+
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
     -- Prefer git instead of curl in order to improve connectivity in some environments

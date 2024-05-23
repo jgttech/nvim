@@ -1,5 +1,6 @@
 -- Autoformat
 local merge = require 'utils.merge'
+local print_table = require 'utils.print_table'
 
 return {
   'stevearc/conform.nvim',
