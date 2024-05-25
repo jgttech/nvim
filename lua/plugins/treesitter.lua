@@ -7,7 +7,7 @@ return {
   },
   build = ':TSUpdate',
   config = function()
-    require('nvim-ts-autotag').setup {}
+    require('nvim-ts-autotag').setup()
 
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
