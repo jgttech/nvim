@@ -3,12 +3,15 @@ return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    'windwp/nvim-ts-autotag',
+    {
+      'windwp/nvim-ts-autotag',
+      config = function()
+        require('nvim-ts-autotag').setup()
+      end,
+    },
   },
   build = ':TSUpdate',
   config = function()
-    require('nvim-ts-autotag').setup()
-
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
     -- Prefer git instead of curl in order to improve connectivity in some environments
