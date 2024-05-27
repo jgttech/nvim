@@ -3,10 +3,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    {
-      'windwp/nvim-ts-autotag',
-      opts = {},
-    },
+    'windwp/nvim-ts-autotag',
   },
   build = ':TSUpdate',
   config = function()
@@ -27,9 +24,6 @@ return {
         enable = true,
         disable = { 'ruby' },
       },
-      autotag = {
-        enable = true,
-      },
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -42,6 +36,7 @@ return {
       ensure_installed = require('lsp').treesitter,
     }
 
+    require('nvim-ts-autotag').setup()
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --
