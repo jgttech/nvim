@@ -10,6 +10,7 @@ return {
   treesitter = {
     'bash',
     'c',
+    'odin',
     'comment',
     'css',
     'elixir',
@@ -50,10 +51,12 @@ return {
     python = { { 'isort', 'black' } },
     tailwindcss = { { 'rustywind' } },
     go = { { 'gofmt', 'goimports' } },
+    ols = {},
   },
   -- Feeds all the mason config.
   mason = {
     gopls = {},
+    ols = {},
     pyright = {},
     rust_analyzer = {},
     tsserver = {},
