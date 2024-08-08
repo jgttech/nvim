@@ -12,6 +12,10 @@ return {
       formatters_by_ft = merge(require('lsp').conform, {
         lua = { 'stylua' },
       }),
+      format_on_save = {
+        lsp_format = "fallback",
+        timeout_ms = 500
+      },
       -- Previous solution.
       -- format_on_save = {
       --   lsp_fallback = true,
