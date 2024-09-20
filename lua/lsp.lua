@@ -59,7 +59,7 @@ return {
     ols = {},
     pyright = {},
     rust_analyzer = {},
-    tsserver = {},
+    ts_ls = {},
     bashls = {},
     biome = {},
     cssls = {},
